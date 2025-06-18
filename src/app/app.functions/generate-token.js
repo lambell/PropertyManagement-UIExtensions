@@ -1,40 +1,23 @@
 const jwt = require('jsonwebtoken');
 
-exports.main = async (context = {}) => {
-  const { dealId } = context.parameters;
-  const jwtSecret = process.env.JWT_SECRET;
-
-  if (!jwtSecret) {
-    return {
-      statusCode: 500,
-      body: { error: 'JWT_SECRET is not configured' }
-    };
-  }
-
-  if (!dealId) {
-    return {
-      statusCode: 400,
-      body: { error: 'dealId is required' }
-    };
-  }
-
+exports.main = async (context) => {
   try {
-    const payload = {
-      dealId: dealId,
-      iat: Math.floor(Date.now() / 1000),
-      exp: Math.floor(Date.now() / 1000) + (60 * 60) // 1 hour expiration
-    };
+    console.log('Generating token for context:', context);
+    const { dealId } = context.parameters;
 
-    const token = jwt.sign(payload, jwtSecret);
-
+    const token = jwt.sign({ dealId }, process.env.JWT_SECRET, { 
+      expiresIn: '1h',
+      algorithm: 'HS256'
+    });
+    
+    console.log('Generated token for dealId:', dealId);
+    
+    // 直接tokenを返す
     return {
-      statusCode: 200,
-      body: token
+      token
     };
   } catch (error) {
-    return {
-      statusCode: 500,
-      body: { error: 'Failed to generate token' }
-    };
+    console.error('Token generation error:', error);
+    throw error;
   }
-};
+}

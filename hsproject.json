@@ -1,5 +1,5 @@
 {
-  "name": "property-management",
-  "srcDir": "src/app",
+  "name": "property-management-v3",
+  "srcDir": "src",
   "platformVersion": "2023.2"
 }

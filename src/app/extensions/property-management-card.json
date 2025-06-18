@@ -1,15 +1,12 @@
 {
   "type": "crm-card",
   "data": {
-    "title": "物件管理システム",
-    "location": "crm.record.sidebar",
+    "title": "Kashiwabara Property Management",
+    "uid": "property_management_card",
+    "location": "crm.record.tab",
     "module": {
       "file": "property-management.jsx"
     },
-    "objectTypes": [
-      {
-        "name": "deals"
-      }
-    ]
+    "objectTypes": [{ "name": "contacts" }]
   }
 }

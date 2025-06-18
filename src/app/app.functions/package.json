@@ -1,8 +1,11 @@
 {
-  "name": "@hubspot/property-management-serverless",
+  "name": "hubspot-example-function",
   "version": "0.1.0",
-  "description": "Property Management Serverless Functions",
+  "author": "HubSpot",
+  "license": "MIT",
   "dependencies": {
-    "jsonwebtoken": "^9.0.0"
+    "@hubspot/api-client": "^7.0.1",
+    "axios": "^0.27.2",
+    "jsonwebtoken": "^9.0.2"
   }
 }
