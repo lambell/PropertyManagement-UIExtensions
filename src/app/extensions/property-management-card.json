@@ -1,0 +1,15 @@
+{
+  "type": "crm-card",
+  "data": {
+    "title": "物件管理システム",
+    "location": "crm.record.sidebar",
+    "module": {
+      "file": "property-management.jsx"
+    },
+    "objectTypes": [
+      {
+        "name": "deals"
+      }
+    ]
+  }
+}

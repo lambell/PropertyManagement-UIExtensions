@@ -1,0 +1,8 @@
+{
+  "name": "@hubspot/property-management-serverless",
+  "version": "0.1.0",
+  "description": "Property Management Serverless Functions",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  }
+}
