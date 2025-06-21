@@ -3,8 +3,6 @@
   "description": "Kashiwabara Property Management System",
   "uid": "property-management-app",
   "scopes": [
-    "crm.objects.contacts.read",
-    "crm.objects.contacts.write",
     "crm.objects.deals.read",
     "crm.objects.deals.write"
   ],
@@ -17,8 +15,5 @@
         }
       ]
     }
-  },
-  "webhooks": {
-    "file": "./webhooks/webhooks.json"
   }
 }

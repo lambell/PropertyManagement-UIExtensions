@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hs project:*)",
+      "Bash(hs secrets:*)"
+    ],
+    "deny": []
+  }
+}
