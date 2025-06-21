@@ -20,7 +20,6 @@ hubspot.extend(({ context, runServerlessFunction, actions }) => (
 const PropertyManagementCard = ({ context, runServerless, actions }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [debugInfo, setDebugInfo] = useState(null); // デバッグ用（後で削除）
 
   const portalId = context.portal.id;
   const objectId = context.crm.objectId;
@@ -41,19 +40,6 @@ const PropertyManagementCard = ({ context, runServerless, actions }) => {
 
       if (tokenResponse.status === "SUCCESS") {
         const token = tokenResponse.response;
-        
-        // デバッグ用：JWT_SECRETの情報を取得（後で削除）
-        const debugResponse = await runServerless({
-          name: "generate-token",
-          parameters: { 
-            dealId: objectId,
-            debug: true  // デバッグモードフラグ
-          },
-        });
-        
-        if (debugResponse.status === "SUCCESS" && debugResponse.response.debugInfo) {
-          setDebugInfo(debugResponse.response.debugInfo);
-        }
         
         const isSandbox = portalId === 45016714;
         const baseUrl = isSandbox 
@@ -102,16 +88,6 @@ const PropertyManagementCard = ({ context, runServerless, actions }) => {
         {error && (
           <Alert title="エラー" variant="error">
             {error}
-          </Alert>
-        )}
-
-        {/* デバッグ情報（後で削除） */}
-        {debugInfo && (
-          <Alert title="デバッグ情報" variant="info">
-            <Text>JWT_SECRET長さ: {debugInfo.length}</Text>
-            <Text>最初の10文字: {debugInfo.first10}</Text>
-            <Text>最後の10文字: {debugInfo.last10}</Text>
-            <Text>Base64形式: {debugInfo.isBase64 ? "はい" : "いいえ"}</Text>
           </Alert>
         )}
 
