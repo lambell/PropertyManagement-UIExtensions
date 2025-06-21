@@ -43,8 +43,8 @@ const PropertyManagementCard = ({ context, runServerless, actions }) => {
         
         const isSandbox = portalId === 45016714;
         const baseUrl = isSandbox 
-          ? "https://property-mgmt-xi.vercel.app"  // Vercel preview links will be used for sandbox
-          : "https://property-mgmt-xi.vercel.app";
+          ? "https://property-mgmt-git-staging-lambell.vercel.app"  // Staging環境
+          : "https://property-mgmt-xi.vercel.app";  // 本番環境
         
         // URLパラメータを構築
         // 現在は特定の部屋（deal）のみ指定
